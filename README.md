@@ -18,6 +18,14 @@ SPI_SLAVE_tb.v: Verilog file represent SPI Slave block
 RAM_tb.v: Verilog file represent Single Port Async RAM
 SPI_TOP_tb.v: Verilog file instantiate the two blocks RAM and SPI
 ram.dat: memory for testbench
+
+Wire connections:
+rx_data in the SPI slave module is connected to the din port in the RAM module.
+rx_valid in the SPI slave module is connected to rx_valid in the RAM module.
+dout in the RAM module is connected to tx_data in the SPI slave module.
+tx_valid in the RAM module is connected to tx_valid in the SPI slave module
+
+
 here is the fsm:
 
 ![fsm](https://github.com/user-attachments/assets/fb7b5f49-127e-4fa2-b35e-90a13fc09c2f)
