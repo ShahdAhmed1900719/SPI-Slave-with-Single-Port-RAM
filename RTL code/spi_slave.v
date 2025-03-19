@@ -65,7 +65,48 @@ always@(*) begin
          ns=IDLE;
     endcase
 end
+//output logic
+always@(posedge clk) begin
+if(~rst_n) begin
+    c_1 <= 0 ; 
+    flag <= 0 ; MISO <= 0 ; 
+    rx_valid <= 0 ;rx_data<= 0 ;
+    
+end 
+else begin 
+    case(cs)
+        WRITE : begin
+            rx_data[9-c_1]<=MOSI ;
+            c_1 <= c_1+1;
+            rx_valid <= (c_1 == 9);
+        end
 
+        READ_ADD : begin
+            rx_data[9-c_1]<=MOSI ;
+            c_1 <= c_1+1 ;
+            if(c_1==9) begin 
+                rx_valid <= 1 ;
+                flag <= 1 ;
+            end 
+        end
+
+        READ_DATA : begin   
+            if (tx_valid) begin
+                    c_1 <= 0;
+                    tx_data_temp <= tx_data;
+                end
+                if (c_1 < 8) begin
+                    MISO <= tx_data_temp[7-c_1];
+                    c_1 <= c_1 + 1;
+                end
+                rx_valid <= (c_1 == 1);
+                flag <= 0;
+           
+        end
+        
+    endcase    
+end
+end
 
 
 endmodule
