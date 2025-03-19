@@ -1,0 +1,43 @@
+C:/Users/LAPTOP/Desktop/DEPLOMA/project2/spi_slave.v {1 {vlog -work work -vopt -stats=none C:/Users/LAPTOP/Desktop/DEPLOMA/project2/spi_slave.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module SPI
+
+Top level modules:
+	SPI
+
+} {} {}} C:/Users/LAPTOP/Desktop/DEPLOMA/project2/_RAM_.v {1 {vlog -work work -vopt -stats=none C:/Users/LAPTOP/Desktop/DEPLOMA/project2/_RAM_.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module RAM
+
+Top level modules:
+	RAM
+
+} {} {}} C:/Users/LAPTOP/Desktop/DEPLOMA/project2/SPI_top.v {1 {vlog -work work -vopt -stats=none C:/Users/LAPTOP/Desktop/DEPLOMA/project2/SPI_top.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module SPI_TOP
+
+Top level modules:
+	SPI_TOP
+
+} {} {}} C:/Users/LAPTOP/Desktop/DEPLOMA/project2/SPI_SLAVE_tb.v {1 {vlog -work work -vopt -stats=none C:/Users/LAPTOP/Desktop/DEPLOMA/project2/SPI_SLAVE_tb.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module SPI_SLAVE_tb
+
+Top level modules:
+	SPI_SLAVE_tb
+
+} {} {}} C:/Users/LAPTOP/Desktop/DEPLOMA/project2/SPI_top_tb.v {1 {vlog -work work -vopt -stats=none C:/Users/LAPTOP/Desktop/DEPLOMA/project2/SPI_top_tb.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module SPI_TOP_tb
+
+Top level modules:
+	SPI_TOP_tb
+
+} {} {}} C:/Users/LAPTOP/Desktop/DEPLOMA/project2/RAM_tb.v {1 {vlog -work work -vopt -stats=none C:/Users/LAPTOP/Desktop/DEPLOMA/project2/RAM_tb.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module RAM_tb
+
+Top level modules:
+	RAM_tb
+
+} {} {}}
