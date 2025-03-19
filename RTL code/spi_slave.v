@@ -75,10 +75,21 @@ if(~rst_n) begin
 end 
 else begin 
     case(cs)
+       IDLE:begin
+            rx_valid <= 0;
+            c_1<=10;
+            c_2<=8;
+            f=1;
+        end
         WRITE : begin
-            rx_data[9-c_1]<=MOSI ;
-            c_1 <= c_1+1;
-            rx_valid <= (c_1 == 9);
+            if (c_1 > 0)  begin
+                rx_data_temp[c_1-1]<=MOSI ;
+                c_1 <= c_1-1;
+            end
+            else begin
+                rx_valid <= 1 ;
+                rx_data<=rx_data_temp;  
+            end 
         end
 
         READ_ADD : begin
@@ -91,16 +102,27 @@ else begin
         end
 
         READ_DATA : begin   
-            if (tx_valid) begin
-                    c_1 <= 0;
+           if (c_1 > 0 && f)  begin
+                rx_data_temp[c_1-1]<=MOSI ;
+                c_1 <= c_1-1;
+            end
+            else if(c_1==0 && f) begin
+                rx_valid <= 1 ;
+                rx_data<=rx_data_temp;
+                f=0;  
+            end 
+            else begin 
+                if (tx_valid) 
                     tx_data_temp <= tx_data;
+                if (c_2 > 0 &&  tx_data_temp==tx_data) begin
+                    MISO <= tx_data_temp[c_2-1];
+                    c_2 <= c_2 - 1;
                 end
-                if (c_1 < 8) begin
-                    MISO <= tx_data_temp[7-c_1];
-                    c_1 <= c_1 + 1;
-                end
-                rx_valid <= (c_1 == 1);
-                flag <= 0;
+                else begin
+                    c_2<=8;
+                    flag <= 0;
+                end             
+            end
            
         end
         
