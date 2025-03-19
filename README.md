@@ -18,6 +18,11 @@ SPI_SLAVE_tb.v: Verilog file represent SPI Slave block
 RAM_tb.v: Verilog file represent Single Port Async RAM
 SPI_TOP_tb.v: Verilog file instantiate the two blocks RAM and SPI
 ram.dat: memory for testbench
+here is the fsm:
+
+![fsm](https://github.com/user-attachments/assets/fb7b5f49-127e-4fa2-b35e-90a13fc09c2f)
+
+
 
 System Level schematic: schematic for the block after synthesis on Vivado
 basys_master.xdc: a constrain file for the target FPGA
